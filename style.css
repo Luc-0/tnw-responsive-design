@@ -72,6 +72,7 @@ a {
   top: 0;
   left: 0;
   right: 0;
+  z-index: 9999;
 
   display: flex;
   justify-content: space-between;
@@ -198,6 +199,7 @@ a {
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
+  padding: 5px;
 
   grid-row-end: span 2;
 }
@@ -226,12 +228,14 @@ a {
   display: flex;
   margin-top: 30px;
   padding: 40px 20px 0;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .work-with-us .partners-list li {
   display: inline;
-  margin-left: 10px;
-  flex: 1;
+  margin: 20px 10px 0 0;
+  min-width: 100px;
 }
 
 .work-with-us button {
@@ -246,6 +250,8 @@ a {
 
   background-color: #222;
 }
+
+/* Media */
 
 @media (max-width: 1010px) {
   .main-header {
@@ -282,6 +288,82 @@ a {
   }
 
   .grid-line {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 765px) {
+  .p-wrapper {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .main-header .logo {
+    width: 250px;
+  }
+
+  .grid-showcase {
+    min-height: 500px;
+    display: flex;
+    margin-bottom: calc(230px + 2%);
+    overflow: scroll hidden;
+  }
+
+  .wrapper-showcase {
+    position: relative;
+  }
+
+  .grid-showcase > * {
+    min-width: 500px;
+    max-height: 500px;
+  }
+
+  .grid-showcase .advert {
+    position: absolute;
+    top: 102%;
+    right: 2%;
+    left: 2%;
+    z-index: 2;
+
+    background-color: #c09;
+    height: 230px;
+    min-height: 0;
+    min-width: 0;
+  }
+
+  .latest-stories {
+    text-align: center;
+  }
+
+  .latest-stories button {
+    justify-self: stretch;
+  }
+
+  .grid-cl-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-scroller {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-scroller .grid-scroll {
+    flex-direction: row;
+  }
+
+  .work-with-us {
+    text-align: center;
+  }
+
+  .work-with-us button {
+    margin: 0 auto;
+  }
+
+  .work-with-us .grid-cl-2 .grid-cl-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .grid-cl-2 {
     grid-template-columns: 1fr;
   }
 }
