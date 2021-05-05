@@ -1,12 +1,16 @@
-/* General styles */
+:root {
+  --gray-text: rgb(80, 86, 102);
+  --menu-logo-color: #000;
+}
 
+/* General styles */
 * {
   box-sizing: border-box;
 }
 
 body {
   padding-top: 100px;
-  font-size: 14px/21px;
+  font: 14px/21px 'Roboto', sans-serif;
 }
 
 h1,
@@ -17,10 +21,15 @@ h3 {
 
 a {
   text-decoration: none;
+  font-weight: inherit;
+}
+
+a:link,
+a:visited {
+  color: inherit;
 }
 
 .logo {
-  background-image: url('images/tnw-logo.svg');
   height: 16px;
   width: 66px;
 }
@@ -65,6 +74,17 @@ a {
   gap: 45px;
 }
 
+.icon {
+  height: 20px;
+  width: 20px;
+}
+
+.icon-menu {
+  height: 22px;
+  width: 22px;
+  background-image: url('img/menu.svg');
+}
+
 /* Nav */
 
 .main-nav {
@@ -77,15 +97,33 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 70px;
+  height: 50px;
   padding: 20px;
 
-  background-color: #ccc;
+  color: var(--gray-text, #333);
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 0.9rem;
+
+  background-color: #fff;
 }
 
 .main-nav ul li {
   display: inline;
+  margin-left: 1.1rem;
+}
+
+.main-nav ul :not(:first-child) a::after {
+  display: inline-block;
+  height: 14px;
+  width: 14px;
   margin-left: 10px;
+  background-image: url('img/arrow-down.svg');
+  content: '';
+}
+
+.main-nav .hide {
+  display: none;
 }
 
 /* Page header */
@@ -254,6 +292,27 @@ a {
 /* Media */
 
 @media (max-width: 1010px) {
+  :root {
+    --menu-logo-color: rgb(167, 170, 178);
+  }
+
+  .main-nav {
+    justify-content: flex-start;
+  }
+
+  .main-nav .show {
+    display: block;
+  }
+
+  .main-nav .hide {
+    display: block;
+  }
+
+  .main-nav > * {
+    display: none;
+    margin-right: 20px;
+  }
+
   .main-header {
     grid-template-columns: 1fr;
   }
